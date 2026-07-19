@@ -1,0 +1,45 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+
+### macOS ###
+.DS_Store
+
+### Node ###
+node_modules/
+dist/
+.angular/
+
+### Logs ###
+*.log
+logs/
+
+### Environment ###
+.env
+!.env.example
+
+### Uploads ###
+uploads/
+
+### Compiled ###
+*.class
+*.jar
+*.war
+
+### Database ###
+*.db
+*.sqlite
+
+### Docker ###
+docker-compose.override.yml

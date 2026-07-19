@@ -1,0 +1,22 @@
+package com.neco.niasip.auth.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class LoginResponse {
+
+    private String token;
+    private String type;
+    private long expiresIn;
+    private String staffId;
+    private String fullName;
+    private String role;
+    private boolean firstLogin;
+    private String passportPhoto;
+}

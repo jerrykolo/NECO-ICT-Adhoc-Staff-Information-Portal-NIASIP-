@@ -1,0 +1,393 @@
+@import 'variables';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--neco-bg);
+  color: var(--neco-text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.neco-card {
+  background: var(--neco-card-bg);
+  border-radius: var(--neco-radius);
+  box-shadow: var(--neco-shadow);
+  padding: 24px;
+  border: 1px solid var(--neco-border);
+  transition: box-shadow 0.2s ease;
+}
+
+.neco-card:hover {
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+}
+
+.neco-card-header {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--neco-text-primary);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--neco-border);
+}
+
+.neco-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: var(--neco-radius-sm);
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+  min-width: 44px;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.neco-btn-primary {
+  background-color: var(--neco-green);
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: var(--neco-green-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(29, 122, 67, 0.3);
+  }
+}
+
+.neco-btn-secondary {
+  background-color: #f0f1f3;
+  color: var(--neco-text-primary);
+
+  &:hover:not(:disabled) {
+    background-color: #e2e4e7;
+  }
+}
+
+.neco-btn-danger {
+  background-color: #dc3545;
+  color: white;
+
+  &:hover:not(:disabled) {
+    background-color: #bb2d3b;
+  }
+}
+
+.neco-btn-outline {
+  background-color: transparent;
+  border: 1.5px solid var(--neco-border);
+  color: var(--neco-text-primary);
+
+  &:hover:not(:disabled) {
+    background-color: #f8f9fa;
+    border-color: var(--neco-green);
+    color: var(--neco-green);
+  }
+}
+
+.neco-btn-sm {
+  padding: 6px 16px;
+  font-size: 0.82rem;
+  min-height: 36px;
+}
+
+.neco-btn-lg {
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+.neco-form-group {
+  margin-bottom: 18px;
+}
+
+.neco-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--neco-text-primary);
+  margin-bottom: 6px;
+}
+
+.neco-input {
+  width: 100%;
+  padding: 12px 16px;
+  height: 48px;
+  border: 1.5px solid var(--neco-border);
+  border-radius: var(--neco-radius-sm);
+  font-size: 0.9rem;
+  color: var(--neco-text-primary);
+  background-color: white;
+  transition: border-color 0.2s, box-shadow 0.2s;
+
+  &:focus {
+    outline: none;
+    border-color: var(--neco-green);
+    box-shadow: 0 0 0 3px rgba(29, 122, 67, 0.15);
+  }
+
+  &::placeholder {
+    color: var(--neco-text-secondary);
+  }
+
+  &:disabled {
+    background-color: #f5f6f8;
+    color: #9ca3af;
+  }
+}
+
+.neco-select {
+  @extend .neco-input;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 16px 12px;
+  padding-right: 40px;
+}
+
+.neco-textarea {
+  @extend .neco-input;
+  height: auto;
+  min-height: 100px;
+  resize: vertical;
+}
+
+.neco-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.neco-badge-draft {
+  background-color: #f3f4f6;
+  color: #6b7280;
+}
+
+.neco-badge-submitted {
+  background-color: #dbeafe;
+  color: #1d4ed8;
+}
+
+.neco-badge-approved {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.neco-badge-rejected {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.neco-stat-card {
+  text-align: center;
+  padding: 24px 16px;
+
+  .stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--neco-green);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--neco-text-secondary);
+    margin-top: 8px;
+  }
+}
+
+.neco-avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--neco-green);
+  box-shadow: 0 4px 16px rgba(29, 122, 67, 0.2);
+}
+
+.neco-avatar-sm {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--neco-border);
+}
+
+.neco-avatar-placeholder {
+  @extend .neco-avatar;
+  background-color: #e8f5e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: var(--neco-green);
+  font-weight: 600;
+}
+
+.neco-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1050;
+  padding: 16px;
+  animation: fadeIn 0.2s ease;
+}
+
+.neco-modal {
+  background: white;
+  border-radius: var(--neco-radius);
+  width: 100%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+.neco-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--neco-border);
+}
+
+.neco-modal-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--neco-text-primary);
+  margin: 0;
+}
+
+.neco-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--neco-text-secondary);
+  cursor: pointer;
+  padding: 4px;
+  line-height: 1;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background-color: #f3f4f6;
+    color: var(--neco-text-primary);
+  }
+}
+
+.neco-modal-body {
+  padding: 24px;
+}
+
+.neco-modal-footer {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding: 16px 24px;
+  border-top: 1px solid var(--neco-border);
+}
+
+.neco-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+.neco-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+
+  .neco-spinner {
+    width: 40px;
+    height: 40px;
+    border-color: rgba(29, 122, 67, 0.2);
+    border-top-color: var(--neco-green);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .neco-card {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .neco-modal {
+    max-width: 95%;
+    margin: 8px;
+    max-height: 95vh;
+    border-radius: 12px;
+  }
+
+  .neco-modal-overlay {
+    padding: 8px;
+  }
+
+  .neco-avatar {
+    width: 100px;
+    height: 100px;
+    font-size: 2rem;
+  }
+
+  .neco-avatar-placeholder {
+    width: 100px;
+    height: 100px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem !important;
+  }
+
+  .neco-btn {
+    min-height: 48px;
+    width: 100%;
+  }
+}
