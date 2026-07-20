@@ -12,9 +12,9 @@
     </parent>
 
     <groupId>com.neco</groupId>
-    <artifactId>niasip</artifactId>
+    <artifactId>neco</artifactId>
     <version>1.0.0</version>
-    <name>NIASIP</name>
+    <name>NECO</name>
     <description>NECO ICT Adhoc Staff Information Portal</description>
 
     <properties>

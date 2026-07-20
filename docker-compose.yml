@@ -1,12 +1,12 @@
 services:
   postgres:
     image: postgres:16-alpine
-    container_name: niasip-db
+    container_name: neco-db
     restart: unless-stopped
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
-      POSTGRES_DB: ${POSTGRES_DB:-niasip_db}
+      POSTGRES_DB: ${POSTGRES_DB:-neco_db}
     ports:
       - "5432:5432"
     volumes:
@@ -21,13 +21,13 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: niasip-app
+    container_name: neco-app
     restart: unless-stopped
     depends_on:
       postgres:
         condition: service_healthy
     environment:
-      DB_URL: jdbc:postgresql://postgres:5432/niasip_db
+      DB_URL: jdbc:postgresql://postgres:5432/neco_db
       DB_USERNAME: ${POSTGRES_USER:-postgres}
       DB_PASSWORD: ${POSTGRES_PASSWORD:-postgres}
       JWT_SECRET: ${JWT_SECRET:-NjNkNGZhNjBkNjhkZmE2ZWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRmYWRm}
@@ -46,7 +46,7 @@ services:
     build:
       context: ./ui
       dockerfile: Dockerfile
-    container_name: niasip-ui
+    container_name: neco-ui
     restart: unless-stopped
     depends_on:
       app:
