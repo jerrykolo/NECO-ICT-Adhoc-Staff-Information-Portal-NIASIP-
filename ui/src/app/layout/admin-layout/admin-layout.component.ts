@@ -13,7 +13,7 @@ import { AuthService } from '../../_core/services/auth.service';
           <div class="sidebar-logo">
             <img src="assets/images/neco-logo.png" alt="NECO" class="sidebar-logo-img" />
             <div>
-              <span class="logo-title">NIASIP</span>
+              <span class="logo-title">NECO</span>
               <span class="logo-subtitle">Admin Portal</span>
             </div>
           </div>

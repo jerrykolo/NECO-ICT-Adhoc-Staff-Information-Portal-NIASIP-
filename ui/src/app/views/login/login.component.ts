@@ -15,7 +15,7 @@ import { AuthService } from '../../_core/services/auth.service';
           <div class="login-logo">
             <img src="assets/images/neco-logo.png" alt="NECO Logo" />
           </div>
-          <h1>NIASIP</h1>
+          <h1>NECO</h1>
           <p class="subtitle">NECO ICT Adhoc Staff Information Portal</p>
           <p class="tagline">Profile Management &bull; Information Verification &bull; Bank Details Update</p>
         </div>

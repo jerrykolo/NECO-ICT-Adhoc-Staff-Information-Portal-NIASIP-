@@ -16,7 +16,7 @@ import { AuthService } from '../../_core/services/auth.service';
             </div>
             <div class="logo-text">
               <span class="org-name">National Examinations Council</span>
-              <span class="portal-name">NIASIP</span>
+              <span class="portal-name">NECO</span>
             </div>
           </a>
           <a routerLink="/" class="home-icon" title="Home">

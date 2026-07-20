@@ -14,7 +14,7 @@ import { StaffProfile } from '../../_core/models/staff.model';
         <div class="sidebar-header">
           <div class="sidebar-logo">
             <img src="assets/images/neco-logo.png" alt="NECO" class="sidebar-logo-img" />
-            <span>NIASIP</span>
+            <span>NECO</span>
           </div>
           <button class="sidebar-close" (click)="sidebarOpen = false">
             <i class="pi pi-times"></i>
