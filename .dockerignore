@@ -1,0 +1,14 @@
+**/.git
+**/.idea
+**/.vscode
+**/node_modules
+**/dist
+**/target
+**/.angular
+**/uploads
+**/.env
+**/.DS_Store
+**/*.log
+**/docker-compose*.yml
+**/README.md
+**/ui
