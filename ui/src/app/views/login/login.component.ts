@@ -86,7 +86,7 @@ import { AuthService } from '../../_core/services/auth.service';
       justify-content: center;
       min-height: calc(100vh - 140px);
       background: linear-gradient(135deg, #f8fafc 0%, #eef2f7 100%);
-      padding: 20px;
+      padding: 40px 20px 20px;
     }
     .login-card {
       background: white;
