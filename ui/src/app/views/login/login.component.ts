@@ -151,16 +151,18 @@ import { AuthService } from '../../_core/services/auth.service';
       position: relative;
       display: flex;
       align-items: center;
+      width: 100%;
     }
     .input-wrapper i {
       position: absolute;
-      left: 14px;
+      left: 16px;
       color: #6b7280;
       font-size: 1rem;
+      pointer-events: none;
     }
     .form-input {
       width: 100%;
-      padding: 12px 44px 12px 44px;
+      padding: 12px 48px 12px 44px;
       height: 48px;
       border: 1.5px solid #D8DDE3;
       border-radius: 10px;
@@ -181,7 +183,9 @@ import { AuthService } from '../../_core/services/auth.service';
     }
     .toggle-password {
       position: absolute;
-      right: 10px;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
       background: none;
       border: none;
       color: #6b7280;
