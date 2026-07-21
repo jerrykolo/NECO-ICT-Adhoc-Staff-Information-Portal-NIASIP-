@@ -153,7 +153,7 @@ import { AuthService } from '../../_core/services/auth.service';
       align-items: center;
       width: 100%;
     }
-    .input-wrapper i {
+    .input-wrapper > i {
       position: absolute;
       left: 16px;
       color: #6b7280;
@@ -184,7 +184,7 @@ import { AuthService } from '../../_core/services/auth.service';
     .toggle-password,
     button.toggle-password {
       position: absolute !important;
-      right: 28px !important;
+      right: 32px !important;
       top: 50% !important;
       transform: translateY(-50%) !important;
       display: flex !important;
