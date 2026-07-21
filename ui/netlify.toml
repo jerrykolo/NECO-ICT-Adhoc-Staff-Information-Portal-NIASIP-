@@ -4,6 +4,6 @@
   publish = "dist/neco/browser"
 
 [[redirects]]
-  from = "/*"
+  from = "ui/*"
   to = "/index.html"
   status = 200
