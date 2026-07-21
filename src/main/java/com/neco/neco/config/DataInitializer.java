@@ -23,7 +23,6 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) {
         initializeAdmin();
-        initializeSampleStaff();
     }
 
     private void initializeAdmin() {
@@ -53,42 +52,4 @@ public class DataInitializer implements CommandLineRunner {
         }
     }
 
-    private void initializeSampleStaff() {
-        if (!staffRepository.existsByStaffId("ICT2026001")) {
-            String[][] sampleData = {
-                    {"ICT2026001", "Abubakar Ibrahim", "Senior ICT Officer", "ICT", "Examinations", "Data Analyst", "08012345678", "abubakar@neco.gov.ng"},
-                    {"ICT2026002", "Fatima Bello", "ICT Officer", "ICT", "Examinations", "System Admin", "08023456789", "fatima@neco.gov.ng"},
-                    {"ICT2026003", "Oluwaseun Adeyemi", "Junior ICT Officer", "ICT", "Technical", "Network Admin", "08034567890", "oluwaseun@neco.gov.ng"},
-                    {"ICT2026004", "Grace Okonkwo", "ICT Officer", "ICT", "Support", "Help Desk Lead", "08045678901", "grace@neco.gov.ng"},
-                    {"ICT2026005", "Mohammed Usman", "Senior ICT Officer", "ICT", "Examinations", "Project Manager", "08056789012", "mohammed@neco.gov.ng"},
-            };
-
-            for (String[] data : sampleData) {
-                Staff staff = Staff.builder()
-                        .staffId(data[0])
-                        .fullName(data[1])
-                        .designation(data[2])
-                        .department(data[3])
-                        .division(data[4])
-                        .role(data[5])
-                        .phoneNumber(data[6])
-                        .email(data[7])
-                        .accountStatus(Staff.AccountStatus.ACTIVE)
-                        .build();
-                staff = staffRepository.save(staff);
-
-                UserAccount account = UserAccount.builder()
-                        .staff(staff)
-                        .username(data[0])
-                        .passwordHash(passwordEncoder.encode("123456"))
-                        .active(true)
-                        .firstLogin(true)
-                        .role(Role.STAFF)
-                        .build();
-                userAccountRepository.save(account);
-            }
-
-            log.info("5 sample staff records created with default password: 123456");
-        }
-    }
 }

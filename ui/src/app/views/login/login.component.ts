@@ -160,7 +160,7 @@ import { AuthService } from '../../_core/services/auth.service';
     }
     .form-input {
       width: 100%;
-      padding: 12px 14px 12px 44px;
+      padding: 12px 44px 12px 44px;
       height: 48px;
       border: 1.5px solid #D8DDE3;
       border-radius: 10px;
@@ -181,13 +181,22 @@ import { AuthService } from '../../_core/services/auth.service';
     }
     .toggle-password {
       position: absolute;
-      right: 12px;
+      right: 10px;
       background: none;
       border: none;
       color: #6b7280;
       cursor: pointer;
-      padding: 4px;
+      padding: 6px;
       font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+      border-radius: 50%;
+      transition: color 0.2s;
+    }
+    .toggle-password:hover {
+      color: #374151;
     }
     .error-message {
       display: flex;
