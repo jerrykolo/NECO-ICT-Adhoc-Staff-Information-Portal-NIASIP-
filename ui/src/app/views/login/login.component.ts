@@ -184,7 +184,7 @@ import { AuthService } from '../../_core/services/auth.service';
     .toggle-password,
     button.toggle-password {
       position: absolute !important;
-      right: 20px !important;
+      right: 28px !important;
       top: 50% !important;
       transform: translateY(-50%) !important;
       display: flex !important;
