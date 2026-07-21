@@ -391,3 +391,28 @@ body {
     width: 100%;
   }
 }
+
+.login-form .input-wrapper {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  width: 100% !important;
+}
+.login-form .toggle-password {
+  position: absolute !important;
+  right: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: none !important;
+  border: none !important;
+  z-index: 1 !important;
+  line-height: 1 !important;
+  width: auto !important;
+  height: auto !important;
+}
+.login-form .form-input {
+  box-sizing: border-box !important;
+}

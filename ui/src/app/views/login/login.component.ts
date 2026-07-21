@@ -181,25 +181,30 @@ import { AuthService } from '../../_core/services/auth.service';
     .form-input::placeholder {
       color: #9ca3af;
     }
-    .toggle-password {
-      position: absolute;
-      right: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: none;
-      border: none;
+    .toggle-password,
+    button.toggle-password {
+      position: absolute !important;
+      right: 14px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      background: none !important;
+      border: none !important;
       color: #6b7280;
       cursor: pointer;
       padding: 6px;
       font-size: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       z-index: 1;
       border-radius: 50%;
       transition: color 0.2s;
+      line-height: 1;
+      width: auto;
+      height: auto;
     }
-    .toggle-password:hover {
+    .toggle-password:hover,
+    button.toggle-password:hover {
       color: #374151;
     }
     .error-message {
