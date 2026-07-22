@@ -17,6 +17,4 @@ export interface BankDetailsRequest {
 
 export interface BankListItem {
   name: string;
-  code: string;
-  type: string;
 }

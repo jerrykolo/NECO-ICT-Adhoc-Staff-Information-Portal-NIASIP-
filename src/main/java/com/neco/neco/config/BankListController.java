@@ -21,9 +21,5 @@ public class BankListController {
         return ResponseEntity.ok(ApiResponse.success("Banks retrieved", banks));
     }
 
-    @GetMapping("/refresh")
-    public ResponseEntity<ApiResponse<Void>> refreshBanks() {
-        bankListService.fetchBanks();
-        return ResponseEntity.ok(ApiResponse.success("Bank list refreshed"));
-    }
+
 }
