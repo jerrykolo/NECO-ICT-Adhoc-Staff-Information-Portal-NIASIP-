@@ -38,8 +38,7 @@ import { AdminStaff, PagedResponse } from '../../../_core/models/admin.model';
               <tr>
                 <th>Staff ID</th>
                 <th>Full Name</th>
-                <th>Department</th>
-                <th>Division</th>
+                <th>Phone Number</th>
                 <th>Status</th>
                 <th>Actions</th>
               </tr>
@@ -48,8 +47,7 @@ import { AdminStaff, PagedResponse } from '../../../_core/models/admin.model';
               <tr *ngFor="let staff of staffList">
                 <td class="staff-id">{{staff.staffId}}</td>
                 <td>{{staff.fullName}}</td>
-                <td>{{staff.department || 'N/A'}}</td>
-                <td>{{staff.division || 'N/A'}}</td>
+                <td>{{staff.phoneNumber || 'N/A'}}</td>
                 <td>
                   <span class="neco-badge" [ngClass]="staff.accountStatus === 'ACTIVE' ? 'neco-badge-approved' : 'neco-badge-rejected'">
                     {{staff.accountStatus}}
@@ -72,7 +70,7 @@ import { AdminStaff, PagedResponse } from '../../../_core/models/admin.model';
                 </td>
               </tr>
               <tr *ngIf="staffList.length === 0">
-                <td colspan="6" class="empty-row">No staff members found</td>
+                <td colspan="5" class="empty-row">No staff members found</td>
               </tr>
             </tbody>
           </table>
@@ -92,12 +90,8 @@ import { AdminStaff, PagedResponse } from '../../../_core/models/admin.model';
                 <span class="detail-value">{{staff.staffId}}</span>
               </div>
               <div class="detail-row">
-                <span class="detail-label">Department</span>
-                <span class="detail-value">{{staff.department || 'N/A'}}</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-label">Division</span>
-                <span class="detail-value">{{staff.division || 'N/A'}}</span>
+                <span class="detail-label">Phone Number</span>
+                <span class="detail-value">{{staff.phoneNumber || 'N/A'}}</span>
               </div>
             </div>
             <div class="card-actions">
