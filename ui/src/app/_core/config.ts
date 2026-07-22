@@ -1,3 +1,3 @@
 export const Config = {
-  apiUrl: 'http://YOUR_CONTABO_IP:8080/api/v1'
+  apiUrl: 'https://vmi2848672.contaboserver.net/niasip/api/v1'
 };
