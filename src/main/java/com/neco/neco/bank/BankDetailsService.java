@@ -41,8 +41,8 @@ public class BankDetailsService {
         BankDetails bankDetails = bankDetailsRepository.findByStaff(staff)
                 .orElse(BankDetails.builder().staff(staff).build());
 
-        bankDetails.setBankName(request.getBankName());
-        bankDetails.setAccountName(request.getAccountName());
+        bankDetails.setBankName(request.getBankName() != null ? request.getBankName().toUpperCase() : null);
+        bankDetails.setAccountName(request.getAccountName() != null ? request.getAccountName().toUpperCase() : null);
         bankDetails.setAccountNumber(request.getAccountNumber());
         bankDetails.setSubmissionStatus(BankDetails.SubmissionStatus.DRAFT);
         bankDetails.setRejectionReason(null);
@@ -59,8 +59,8 @@ public class BankDetailsService {
         BankDetails bankDetails = bankDetailsRepository.findByStaff(staff)
                 .orElse(BankDetails.builder().staff(staff).build());
 
-        bankDetails.setBankName(request.getBankName());
-        bankDetails.setAccountName(request.getAccountName());
+        bankDetails.setBankName(request.getBankName() != null ? request.getBankName().toUpperCase() : null);
+        bankDetails.setAccountName(request.getAccountName() != null ? request.getAccountName().toUpperCase() : null);
         bankDetails.setAccountNumber(request.getAccountNumber());
         bankDetails.setSubmissionStatus(BankDetails.SubmissionStatus.SUBMITTED);
         bankDetails.setSubmittedAt(Timestamp.from(Instant.now()));

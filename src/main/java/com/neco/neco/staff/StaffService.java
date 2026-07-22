@@ -35,7 +35,7 @@ public class StaffService {
                 .orElseThrow(() -> new ResourceNotFoundException("Staff", "username", username));
 
         if (request.getPhoneNumber() != null) {
-            staff.setPhoneNumber(request.getPhoneNumber());
+            staff.setPhoneNumber(request.getPhoneNumber().toUpperCase());
         }
         if (request.getEmail() != null) {
             staff.setEmail(request.getEmail());

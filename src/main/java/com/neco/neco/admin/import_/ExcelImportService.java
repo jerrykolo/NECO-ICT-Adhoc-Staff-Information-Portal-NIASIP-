@@ -41,14 +41,14 @@ public class ExcelImportService {
 
             ImportRow importRow = new ImportRow();
             importRow.setRowNumber(i);
-            importRow.setStaffId(getCellStringValue(row.getCell(0)));
-            importRow.setFullName(getCellStringValue(row.getCell(1)));
-            String category = getCellStringValue(row.getCell(2));
+            importRow.setStaffId(toUpper(getCellStringValue(row.getCell(0))));
+            importRow.setFullName(toUpper(getCellStringValue(row.getCell(1))));
+            String category = toUpper(getCellStringValue(row.getCell(2)));
             importRow.setCategory(category != null && !category.isEmpty() ? category : "ADHOC");
-            importRow.setPhoneNumber(getCellStringValue(row.getCell(3)));
-            importRow.setBankName(getCellStringValue(row.getCell(4)));
-            importRow.setAccountName(getCellStringValue(row.getCell(5)));
-            importRow.setAccountNumber(getCellStringValue(row.getCell(6)));
+            importRow.setPhoneNumber(toUpper(getCellStringValue(row.getCell(3))));
+            importRow.setBankName(toUpper(getCellStringValue(row.getCell(4))));
+            importRow.setAccountName(toUpper(getCellStringValue(row.getCell(5))));
+            importRow.setAccountNumber(toUpper(getCellStringValue(row.getCell(6))));
 
             importRow.setDuplicate(staffRepository.existsByStaffId(importRow.getStaffId()));
             importRow.setValid(validateRow(importRow));
@@ -131,6 +131,10 @@ public class ExcelImportService {
             }
         }
         return cell.getStringCellValue().trim();
+    }
+
+    private String toUpper(String value) {
+        return value != null ? value.toUpperCase() : null;
     }
 
     private boolean validateRow(ImportRow row) {

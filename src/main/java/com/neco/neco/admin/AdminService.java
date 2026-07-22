@@ -126,7 +126,7 @@ public class AdminService {
         }
 
         bankDetails.setSubmissionStatus(BankDetails.SubmissionStatus.REJECTED);
-        bankDetails.setRejectionReason(reason);
+        bankDetails.setRejectionReason(reason != null ? reason.toUpperCase() : null);
         bankDetailsRepository.save(bankDetails);
     }
 

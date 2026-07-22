@@ -37,8 +37,8 @@ public class AnnouncementController {
     public ResponseEntity<ApiResponse<Announcement>> createAnnouncement(
             @RequestBody Map<String, Object> body) {
         Announcement announcement = new Announcement();
-        announcement.setTitle((String) body.get("title"));
-        announcement.setContent((String) body.get("content"));
+        announcement.setTitle(((String) body.get("title")).toUpperCase());
+        announcement.setContent(((String) body.get("content")).toUpperCase());
         announcement.setPublishedAt(Timestamp.from(Instant.now()));
         announcement.setActive(true);
         announcement = announcementRepository.save(announcement);
@@ -52,8 +52,8 @@ public class AnnouncementController {
             @RequestBody Map<String, Object> body) {
         Announcement announcement = announcementRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Announcement", "id", id));
-        announcement.setTitle((String) body.get("title"));
-        announcement.setContent((String) body.get("content"));
+        announcement.setTitle(((String) body.get("title")).toUpperCase());
+        announcement.setContent(((String) body.get("content")).toUpperCase());
         if (body.containsKey("active")) {
             announcement.setActive((Boolean) body.get("active"));
         }
