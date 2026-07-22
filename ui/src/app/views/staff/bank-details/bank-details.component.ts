@@ -284,11 +284,11 @@ export class BankDetailsComponent implements OnInit {
 
   get canEdit(): boolean {
     return !this.bankDetails?.submissionStatus ||
-           this.bankDetails.submissionStatus === 'DRAFT' ||
-           this.bankDetails.submissionStatus === 'REJECTED';
+      this.bankDetails.submissionStatus === 'DRAFT' ||
+      this.bankDetails.submissionStatus === 'REJECTED';
   }
 
-  constructor(private staffService: StaffService) {}
+  constructor(private staffService: StaffService) { }
 
   ngOnInit() {
     this.loadBankDetails();
@@ -320,9 +320,9 @@ export class BankDetailsComponent implements OnInit {
 
   isFormValid(): boolean {
     return !!this.formData.bankName &&
-           !!this.formData.accountName &&
-           !!this.formData.accountNumber &&
-           this.formData.accountNumber.length === 10;
+      !!this.formData.accountName &&
+      !!this.formData.accountNumber &&
+      this.formData.accountNumber.length === 10;
   }
 
   onSaveDraft() {

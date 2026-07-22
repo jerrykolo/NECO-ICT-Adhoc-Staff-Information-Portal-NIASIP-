@@ -92,8 +92,7 @@ public class BankListService {
                 Map.of("name", "Unity Bank", "code", "215", "type", "commercial"),
                 Map.of("name", "VFD Microfinance Bank", "code", "50315", "type", "microfinance"),
                 Map.of("name", "Wema Bank", "code", "035", "type", "commercial"),
-                Map.of("name", "Zenith Bank", "code", "057", "type", "commercial")
-        ));
+                Map.of("name", "Zenith Bank", "code", "057", "type", "commercial")));
         log.info("Loaded {} default Nigerian banks", cachedBanks.size());
     }
 }

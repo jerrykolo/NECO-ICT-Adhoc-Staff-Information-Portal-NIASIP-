@@ -3,6 +3,7 @@ package com.neco.neco.config;
 import com.neco.neco.config.jwt.JwtAuthenticationEntryPoint;
 import com.neco.neco.config.jwt.JwtTokenFilter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -32,21 +33,24 @@ public class WebSecurityConfig {
     private final JwtTokenFilter jwtTokenFilter;
     private final JwtAuthenticationEntryPoint jwtAuthEntryPoint;
 
+    @Value("${app.cors.allowed-origins:http://localhost:4200,http://localhost}")
+    private String allowedOrigins;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(AbstractHttpConfigurer::disable)
-            .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthEntryPoint))
-            .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-            .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/v1/auth/**").permitAll()
-                .requestMatchers("/actuator/health").permitAll()
-                .requestMatchers(HttpMethod.GET, "/api/v1/banks/**").permitAll()
-                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-                .anyRequest().authenticated()
-            )
-            .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
+                .csrf(AbstractHttpConfigurer::disable)
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .exceptionHandling(ex -> ex.authenticationEntryPoint(jwtAuthEntryPoint))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/api/v1/auth/**").permitAll()
+                        .requestMatchers("/actuator/health").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/banks/**").permitAll()
+                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+                        .requestMatchers("/swagger-ui.html", "/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                        .anyRequest().authenticated())
+                .addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -54,9 +58,10 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:4200", "http://localhost:80"));
-        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedOrigins(List.of(allowedOrigins.split(",")));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
+        configuration.setExposedHeaders(List.of("Authorization", "Content-Disposition"));
         configuration.setAllowCredentials(true);
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
